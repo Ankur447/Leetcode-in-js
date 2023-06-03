@@ -1,15 +1,18 @@
-/**
+ /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-const twoSum = function(nums, target) {
-    const myObject = {};
-    for (let i = 0; i < nums.length; i++) {
-      const complement = target - nums[i];
-      if (myObject.hasOwnProperty(complement)) {
-        return [myObject[complement], i];
+var twoSum = function(nums, target) {
+      let map = {};
+      for(let i = 0 ; i < nums.length ; i++){
+        let value = nums[i];
+        let pair = target - value;
+        if(map[pair] !== undefined){
+          return [map[pair],i];
+        }
+        else{
+          map[value] = i;
+        }
       }
-      myObject[nums[i]] = i;
-    }
-  };
+};
